@@ -12,35 +12,39 @@
     Incase more than 60 requests are to be made, user has to provide credentials. -->
     <form method="POST" action="/register_user">
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s5">
                 {% csrf_token %}
                 <input id="first_name" type="text" name="user_name" class="validate">
                 <label for="first_name">Your Github User Name</label>
                 <span class="helper-text">Authentication not necessary unless you want to make more than 60 requests per hour</span>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s5">
                 {% csrf_token %}
                 <input id="password" type="password" name="password" class="validate">
                 <label for="password">Password</label>
             </div>
+            <div class="input-field col s2">
+                <button class="btn-small waves-effect waves-light" type="submit" name="action">Authenticate
+                    <i class="material-icons right"></i>
+                </button>
+            </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Authenticate
-            <i class="material-icons right"></i>
-        </button>
     </form>
     <!-- Form to get public repository URL-->
     <form method="POST" action="/issues">
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s5">
                 {% csrf_token %}
                 <input id="repourl" type="text" name="repourl" class="validate">
                 <label for="repourl">Public Repository URL</label>
                 <span class="helper-text">URL Syntax: https://github.com/user_name/repository_name</span>
             </div>
+            <div class="input-field col">
+                <button class="btn-small waves-effect waves-light" type="submit" name="action">Get Issues
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Get Issues
-            <i class="material-icons right"></i>
-        </button>
     </form>
 
     <!-- In a non-happy case where some error occurs, this is to print the error message on the screen -->
@@ -53,7 +57,9 @@
     </blockquote>
     {% endif %}
     <br>
+    {% if total_issues >= 0 %}
     <span>Total Issues: {{ total_issues }}</span>
+    {% endif %}
     <br><br>
     <!-- Iterate through the dictionary to render the issues for each category and their count respectively -->
     {% for key, value in issue_dict.items %}
@@ -82,5 +88,4 @@
         </table>
         <hr>
     {% endfor %}
-
 </body>

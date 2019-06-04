@@ -26,6 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'issues-in-repo.herokuapp.com',
+    'localhost'
 ]
 
 

@@ -10,7 +10,7 @@ github_obj = Github() # Github object without authentication
 def render_with_error(request, e):
     return render(request=request,
                   template_name="details.html",
-                  context={"error_message": str(e)})
+                  context={"error_message": e})
 
 def register_user(request):
     global github_obj
@@ -48,7 +48,7 @@ def index(request):
     global repo_url
     global github_obj
     if repo_url==None:
-        return render_with_error(request,"Enter a public repository Url")
+        return render_with_error(request,None)
     try:
         issues = github_obj.get_repo(repo_url).get_issues(state="open")
     except Exception as e:
@@ -110,4 +110,5 @@ def index(request):
     return render(request=request,
                   template_name="details.html",
                   context={"total_issues": total_issues,
+                           "repo_issue": repo_url,
                            "issue_dict":issues_dict})
