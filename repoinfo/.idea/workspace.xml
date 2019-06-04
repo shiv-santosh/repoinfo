@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9fe38804-c5fd-4267-bda9-3eb10aa6d88a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IssueDetails/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/IssueDetails/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IssueDetails/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/IssueDetails/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IssueDetails/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/IssueDetails/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repoinfo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/repoinfo/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repoinfo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/repoinfo/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="9fe38804-c5fd-4267-bda9-3eb10aa6d88a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
