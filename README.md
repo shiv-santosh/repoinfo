@@ -21,3 +21,10 @@ Space for improvement:
   - Features to perform git actions that are capabale using the github API
   - Two factor authentication in addition to basic authentication
   - Overall better UI
+
+
+Steps to get the app running
+  - Open terminal
+  - Switch to project directory
+  - run `python3 manage.py runserver`
+  - open localhost:8000 in your browser
