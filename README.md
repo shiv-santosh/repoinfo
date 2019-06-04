@@ -1,4 +1,4 @@
-# repo-info
+# repoinfo
 
 Problem Statement:
 Input: User can input a link to any public GitHub repository  
