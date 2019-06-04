@@ -1,1 +1,1 @@
-web:gunicorn repoinfo.wsgi --log-file -
+web: gunicorn repoinfo.wsgi --log-file -
