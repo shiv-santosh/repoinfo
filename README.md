@@ -20,7 +20,9 @@ Space for improvement:
   - Pagination for issues list
   - Features to perform git actions that are capabale using the github API
   - Two factor authentication in addition to basic authentication
-  - Overall better UI
+  - Overall better UI/UX
+  - Custom date filter to get issues
+  - Better issues listing capabilities, like sorting based on a specific property. 
 
 
 Steps to get the app running

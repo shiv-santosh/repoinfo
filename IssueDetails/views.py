@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from github import Github
-import logging
+import datetime
 
 repo_url = None # repository url
 github_obj = Github() # Github object without authentication
@@ -44,6 +43,12 @@ def get_issue_dict(issue):
         "issue_created_at": issue.created_at
     }
 
+def get_datetime_in_format(datetime):
+    return datetime.strftime("%a %-d %b %-I:%M %p UTC")
+
+def get_datetime_in_format_title(datetime):
+    return datetime.strftime("%-d %b %-I:%M %p")
+
 def index(request):
     global repo_url
     global github_obj
@@ -64,23 +69,27 @@ def index(request):
     issues_opened_older_than_a_week =[]
     total_issues_opened_older_than_a_week = 0
 
+    current_time = datetime.datetime.now()
+    tomorrow = current_time + datetime.timedelta(days=1)
+    week_later = current_time + datetime.timedelta(days=7)
+
     issues_dict = \
     {
         "issues_opened_last_24hr":
            {
-               "title":"Issues opened in the last 24 hours: ",
+               "title":"Issues opened after "+get_datetime_in_format(tomorrow)+": ",
                "issues":[],
                "total":0
            },
        "issues_opened_last_week":
            {
-               "title": "Issues opened in the last week later than 24 hours: ",
+               "title": "Issues opened between "+get_datetime_in_format(tomorrow)+" and "+get_datetime_in_format(week_later)+": ",
                "issues":[],
                "total":0
            },
        "issues_opened_older_than_a_week":
            {
-               "title": "Issues opened before last week: ",
+               "title": "Issues opened before "+get_datetime_in_format(week_later)+": ",
                "issues":[],
                "total":0
            }
@@ -110,5 +119,5 @@ def index(request):
     return render(request=request,
                   template_name="details.html",
                   context={"total_issues": total_issues,
-                           "repo_issue": repo_url,
+                           "repo_url": repo_url,
                            "issue_dict":issues_dict})
